@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("✅ filter.js running");
 
+  const tags = document.querySelector('div').getAttribute('title').split(',');
+  
   const checkboxes = document.querySelectorAll(".tag-filter");
   console.log("Found checkboxes:", checkboxes);
 
@@ -40,3 +42,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log("✅ Script initialized");
 });
+
