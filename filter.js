@@ -28,4 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   checkboxes.forEach(cb => {
     cb.addEventListener("change", filterResults);
   });
+
+  console.log("Inline script runs");
 });
+
