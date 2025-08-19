@@ -17,12 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Selected tags:", selectedTags);
 
     containers.forEach(container => {
-      const tags = container.dataset.tags.split(",");
-      console.log("Container tags:", tags);
+  const tagsAttr = container.dataset.tags || "";  // default to empty string if undefined
+  const tags = tagsAttr.split(",");
+  console.log("Container tags:", tags);
 
-      const match = selectedTags.every(tag => tags.includes(tag));
-      container.style.display = match || selectedTags.length === 0 ? "block" : "none";
-    });
+  const match = selectedTags.every(tag => tags.includes(tag));
+  container.style.display = match || selectedTags.length === 0 ? "block" : "none";
+});
+
   }
 
   checkboxes.forEach(cb => {
@@ -31,4 +33,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log("Inline script runs");
 });
+
 
