@@ -1,6 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("✅ filter.js running");
 
+<div id="mydiv">Content</div>
+<script>
+  document.getElementById('mydiv').setAttribute('data-tags', 'yourValue');
+</script>
+
+
+  
   const tags = document.querySelector('div').getAttribute('title').split(',');
   
   const checkboxes = document.querySelectorAll(".tag-filter");
@@ -42,4 +49,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log("✅ Script initialized");
 });
+
 
