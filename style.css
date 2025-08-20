@@ -30,7 +30,12 @@
         font-family: Arial, sans-serif; 
     }
 
+    .iframe-container {
+        width: 150px;
+        height: 100px;
+    }
     
+
 
 
 
