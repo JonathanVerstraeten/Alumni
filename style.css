@@ -16,3 +16,21 @@
     input[type="checkbox"]:checked + .toggle-label {
       background-color: #4CAF50;
     }
+
+    .iframe-container { 
+        margin: 10px 0; 
+    }
+
+    .hidden { 
+        display: none; 
+    }
+
+    #logo { 
+        max-width: 300px; height: auto; 
+    }
+    
+    .section-heading { 
+        font-family: Arial, sans-serif; 
+    }
+
+    
