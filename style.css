@@ -29,3 +29,14 @@
     .section-heading { 
         font-family: Arial, sans-serif; 
     }
+
+    .projects column-2 {
+        display: flex;
+        gap: 10px; /* spacing between divs */
+    }
+
+    .iframe-container {
+        width: 150px;
+        height: 100px;
+        background-color: lightblue;
+    }
