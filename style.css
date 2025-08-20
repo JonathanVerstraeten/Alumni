@@ -15,7 +15,7 @@
     }
 
     .tag-filter:checked + .checkbox-label {
-      background-color: #4CAF50;
+      background-color: #1FABD5;
     }
 
     .hidden { 
@@ -31,5 +31,6 @@
     }
 
     
+
 
 
