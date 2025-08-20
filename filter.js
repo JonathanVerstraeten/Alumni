@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Selected tags:", selectedTags);
 
     containers.forEach(container => {
-      const tagsAttr = container.getAttribute("data-tags") || "";
-      console.log("📦 Raw data-tags:", tagsAttr);
+      const tagsAttr = container.getAttribute("class") || "";
+      console.log("📦 Raw class:", tagsAttr);
 
       const tags = parseCommaSeparated(tagsAttr);
       console.log("➡️ Container tags:", tags);
@@ -66,5 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
+
 
 
