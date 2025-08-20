@@ -30,7 +30,7 @@
         font-family: Arial, sans-serif; 
     }
 
-    .projects column-2 {
+    .container {
         display: flex;
         gap: 10px; /* spacing between divs */
     }
@@ -40,3 +40,4 @@
         height: 100px;
         background-color: lightblue;
     }
+
