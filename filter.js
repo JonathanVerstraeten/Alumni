@@ -1,13 +1,3 @@
-@@ -1,53 +1,35 @@
-// Step 1: Convert data-stash into data-tags
-document.querySelectorAll('[data-stash]').forEach(el => {
-  const stash = el.getAttribute('data-stash');
-  if (stash) {
-    el.setAttribute('data-tags', stash);
-    el.removeAttribute('data-stash');
-  }
-});
-
 document.addEventListener("DOMContentLoaded", () => {
   console.log("✅ filter.js running");
 
@@ -58,5 +48,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   console.log("✅ Script initialized");
-  filterResults(); // Run once on load
 });
