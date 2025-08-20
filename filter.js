@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const tags = parseCommaSeparated(tagsAttr);
       console.log("➡️ Container tags:", tags);
 
-      const match = selectedTags.every(tag => tags.includes(tag));
+      const match = selectedTags.some(tag => tags.includes(tag));
 
       container.style.display = match || selectedTags.length === 0 ? "block" : "none";
     });
@@ -66,4 +66,5 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
+
 
