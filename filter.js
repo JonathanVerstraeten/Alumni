@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
       .map(cb => cb.value.trim());
 
     containers.forEach(container => {
-      const tags = container.getAttribute('class')
+      const tags = container.getAttribute('data-tag')
         .split(',')
         .map(tag => tag.trim());
 
@@ -23,3 +23,4 @@ document.addEventListener('DOMContentLoaded', function () {
   checkboxes.forEach(cb => cb.addEventListener('change', filterIframes));
   filterIframes();
 });
+
