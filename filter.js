@@ -1,15 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("✅ filter.js running");
 
-<div id="mydiv">Content</div>
-<script>
-  document.getElementById('mydiv').setAttribute('data-tags', 'yourValue');
-</script>
+  // Helper function to parse comma-separated tags manually
+  function parseCommaSeparated(str) {
+    const result = [];
+    let current = '';
+    for (let i = 0; i < str.length; i++) {
+      const char = str[i];
+      if (char === ',') {
+        result.push(current.trim());
+        current = '';
+      } else {
+        current += char;
+      }
+    }
+    if (current) {
+      result.push(current.trim());
+    }
+    return result;
+  }
 
-
-  
-  const tags = document.querySelector('div').getAttribute('title').split(',');
-  
   const checkboxes = document.querySelectorAll(".tag-filter");
   console.log("Found checkboxes:", checkboxes);
 
@@ -26,23 +36,18 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Selected tags:", selectedTags);
 
     containers.forEach(container => {
-      // Use getAttribute instead of dataset for reliability
       const tagsAttr = container.getAttribute("data-tags") || "";
       console.log("📦 Raw data-tags:", tagsAttr);
 
-      // Split and trim tags
-      const tags = tagsAttr.split(",").map(tag => tag.trim());
+      const tags = parseCommaSeparated(tagsAttr);
       console.log("➡️ Container tags:", tags);
 
-      // Match: all selected tags must be present in container tags
       const match = selectedTags.every(tag => tags.includes(tag));
-      
-      // Show or hide container
+
       container.style.display = match || selectedTags.length === 0 ? "block" : "none";
     });
   }
 
-  // Add event listeners to checkboxes
   checkboxes.forEach(cb => {
     cb.addEventListener("change", filterResults);
   });
