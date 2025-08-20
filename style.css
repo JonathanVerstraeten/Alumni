@@ -1,4 +1,4 @@
-.checkbox-button {
+.tag-filter {
       display: none;
     }
 
@@ -14,7 +14,7 @@
       transition: background-color 0.3s;
     }
 
-    .checkbox-button:checked + .checkbox-label {
+    .tag-filter:checked + .checkbox-label {
       background-color: #4CAF50;
     }
 
@@ -31,4 +31,5 @@
     }
 
     
+
 
