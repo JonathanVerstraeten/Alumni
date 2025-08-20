@@ -1,24 +1,21 @@
-.toggle-label {
+.checkbox-button {
+      display: none;
+    }
+
+    .checkbox-label {
       display: inline-block;
-      background-color: #ccc;
       padding: 10px 20px;
+      margin: 5px;
+      background-color: #ccc;
       color: white;
-      cursor: pointer;
       border-radius: 5px;
+      cursor: pointer;
       user-select: none;
       transition: background-color 0.3s;
     }
 
-    input[type="checkbox"] {
-      display: none;
-    }
-
-    input[type="checkbox"]:checked + .toggle-label {
+    .checkbox-button:checked + .checkbox-label {
       background-color: #4CAF50;
-    }
-
-    .iframe-container { 
-        margin: 10px 0; 
     }
 
     .hidden { 
@@ -34,3 +31,4 @@
     }
 
     
+
