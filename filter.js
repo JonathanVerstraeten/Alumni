@@ -54,3 +54,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log("✅ Script initialized");
 });
+
+// Optional: log which options are selected
+  const checkboxes = document.querySelectorAll('.checkbox-button');
+
+  checkboxes.forEach(cb => {
+    cb.addEventListener('change', () => {
+      console.clear();
+      checkboxes.forEach(box => {
+        console.log(`${box.id}: ${box.checked}`);
+      });
+    });
+  });
+
