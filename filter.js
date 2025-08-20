@@ -1,32 +1,62 @@
-  const checkboxes = document.querySelectorAll('.tag-filter');
-  const containers = document.querySelectorAll('.iframe-container');
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("filter.js running");
+@@ -1,53 +1,35 @@
+// Step 1: Convert data-stash into data-tags
+document.querySelectorAll('[data-stash]').forEach(el => {
+  const stash = el.getAttribute('data-stash');
+  if (stash) {
+    el.setAttribute('data-tags', stash);
+    el.removeAttribute('data-stash');
+  }
+});
 
-  function filterIframes() {
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("✅ filter.js running");
+
+<div id="mydiv">Content</div>
+<script>
+  document.getElementById('mydiv').setAttribute('data-tags', 'yourValue');
+</script>
+
+
+  
+  const tags = document.querySelector('div').getAttribute('title').split(',');
+  
   const checkboxes = document.querySelectorAll(".tag-filter");
+  console.log("Found checkboxes:", checkboxes);
+
   const containers = document.querySelectorAll(".iframe-container");
+  console.log("Found containers:", containers);
 
   function filterResults() {
-const selectedTags = Array.from(checkboxes)
-.filter(cb => cb.checked)
-.map(cb => cb.value);
+    console.log("🔄 Checkbox changed");
 
-containers.forEach(container => {
-      const tags = container.getAttribute('data-tags').split(',');
+    const selectedTags = Array.from(checkboxes)
+      .filter(cb => cb.checked)
+      .map(cb => cb.value.trim());
 
-      const matches = selectedTags.length === 0 || selectedTags.some(tag => tags.includes(tag));
-      const tags = container.dataset.tags.split(",");
+    console.log("Selected tags:", selectedTags);
+
+    containers.forEach(container => {
+      // Use getAttribute instead of dataset for reliability
+      const tagsAttr = container.getAttribute("data-tags") || "";
+      console.log("📦 Raw data-tags:", tagsAttr);
+
+      // Split and trim tags
+      const tags = tagsAttr.split(",").map(tag => tag.trim());
+      console.log("➡️ Container tags:", tags);
+
+      // Match: all selected tags must be present in container tags
       const match = selectedTags.every(tag => tags.includes(tag));
-
-      container.style.display = matches ? '' : 'none';
-      // Show only if it matches all selected tags
+      
+      // Show or hide container
       container.style.display = match || selectedTags.length === 0 ? "block" : "none";
-});
-}
+    });
+  }
 
-  checkboxes.forEach(cb => cb.addEventListener('change', filterIframes));
+  // Add event listeners to checkboxes
+  checkboxes.forEach(cb => {
+    cb.addEventListener("change", filterResults);
+  });
 
-  filterIframes();
-  checkboxes.forEach(cb => cb.addEventListener("change", filterResults));
+  console.log("✅ Script initialized");
+  filterResults(); // Run once on load
 });
