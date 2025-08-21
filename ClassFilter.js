@@ -1,14 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("✅ ClassFilter.js running");
+  console.log("✅ filter.js running");
 
   const checkboxes = document.querySelectorAll(".tag-filter");
-  // Adjust container selector to your actual container divs inside #results
-  const containers = document.querySelectorAll("#results > div");
+  const containers = document.querySelectorAll(".iframe-container");
 
   function filterResults() {
     console.log("🔄 Checkbox changed");
 
-    // Get all checked tag values
     const selectedTags = Array.from(checkboxes)
       .filter(cb => cb.checked)
       .map(cb => cb.value.trim());
@@ -16,14 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Selected tags:", selectedTags);
 
     containers.forEach(container => {
-      // Get container's classes as an array
       const classList = Array.from(container.classList);
       console.log("📦 Container classes:", classList);
 
-      // Check if any selected tag matches a class on container (OR filter)
-      const match = selectedTags.length === 0 || selectedTags.some(tag => classList.includes(tag));
-
-      container.style.display = match ? "block" : "none";
+      const match = selectedTags.some(tag => classList.includes(tag));
+      container.style.display = match || selectedTags.length === 0 ? "block" : "none";
     });
   }
 
@@ -31,8 +26,15 @@ document.addEventListener("DOMContentLoaded", () => {
     cb.addEventListener("change", filterResults);
   });
 
-  // Run initially to show all
-  filterResults();
+  // Optional: log checkbox state
+  checkboxes.forEach(cb => {
+    cb.addEventListener("change", () => {
+      console.clear();
+      checkboxes.forEach(box => {
+        console.log(`${box.id}: ${box.checked}`);
+      });
+    });
+  });
 
   console.log("✅ Script initialized");
 });
